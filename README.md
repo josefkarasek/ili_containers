@@ -92,7 +92,7 @@ docker run -it --rm --cpu-period=50000 --cpu-quota=25000 pschiffe/docker101-fedo
 # in container:
 stress --cpu 4
 # on the host:
-systemd-cgtop | grep docker
+systemd-cgtop -n 2 | grep docker
 ```
 * [CPU set](https://docs.docker.com/engine/reference/run/#cpuset-constrain#### t) and [CPU shares](https://docs.docker.com/engine/reference/run/#cpu-share-constraint)
 ```
