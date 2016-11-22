@@ -14,11 +14,11 @@ If you're wandering why this is necessary [this](http://www.projectatomic.io/blo
 Consult the manual page for the `run` subcommand: `man docker run`.
 
 ### The Lab
-1) Hello World
+#### 1) Hello World
 ```
 docker run hello-world
 ```
-2) First steps
+#### 2) First steps
 ```
 docker run -i -t fedora:24 /bin/bash
 pwd
@@ -45,7 +45,7 @@ exit
 ```
 That's better, isn't it?
 
-3) Namespaces
+#### 3) Namespaces
 Install some basic tools that we'll use to gather information about the container at runtime:
 ```
 docker run -it fedora
@@ -75,7 +75,7 @@ hostname
 # or cat /etc/hostname
 ```
 
-3) CGroups
+#### 4) CGroups
 * [Memory limit](https://docs.docker.com/engine/reference/run/#/user-memory-constraints)
 ```
 # start a new container
@@ -94,7 +94,7 @@ stress --cpu 4
 # on the host:
 systemd-cgtop | grep docker
 ```
-* [CPU set](https://docs.docker.com/engine/reference/run/#cpuset-constraint) and [CPU shares](https://docs.docker.com/engine/reference/run/#cpu-share-constraint)
+* [CPU set](https://docs.docker.com/engine/reference/run/#cpuset-constrain#### t) and [CPU shares](https://docs.docker.com/engine/reference/run/#cpu-share-constraint)
 ```
 # start the two following containers
 docker run -it --rm --cpuset-cpus=1 --cpu-shares=1024 pschiffe/docker101-fedora bash
@@ -104,7 +104,7 @@ stress --cpu 1
 # on the host:
 systemd-cgtop -n 2 | grep docker
 ```
-4) Networking
+#### 5) Networking
 * Publish all ports
 ```
 docker run -d -P --name my-nginx nginx
@@ -128,14 +128,14 @@ Is there any difference between publishing port 80 and 8080? [Hint](https://www.
 docker logs --follow my-nginx
 # visit welcome page in browser, refresh, watch the logs
 ```
-5) Volumes
+#### 6) Volumes
 ```
 docker run -d -p 80:80 -v $PWD/nginx:/usr/share/nginx/html:ro,Z --name my-nginx nginx
 # visit the page in browser
 # edit index.html in nginx dir and see the changes in browser
 # clean up
 ```
-5) Building container images
+#### 7) Building container images
 In this section you will build two container images using the [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 * Building image from scratch
 In this exercise you'll build container image that contains only statically built binary and its configuration. All data you need is in the `caddy` directory of this repository, go ahead checkout its content.
@@ -154,4 +154,4 @@ docker build -t ili/nginx ./nginx
 docker run -d -p 80:80 ili/nginx
 # visit the welcome page in browser
 ```
-6) Docker Hub
+#### 8) Docker Hub
