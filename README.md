@@ -48,7 +48,7 @@ That's better, isn't it?
 #### 3) Namespaces
 Install some basic tools that we'll use to gather information about the container at runtime:
 ```
-docker run -it fedora
+docker run -it fedora bash
 dnf install -y procps-ng iproute hostname
 ```
 * Network namespace. Compare outputs of the following commands inside the container and on the host.
