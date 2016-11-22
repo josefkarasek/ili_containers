@@ -119,7 +119,8 @@ docker port my-nginx
 # kill container
 docker rm -f my-nginx
 ```
-* Publish only specific port
+* Publish only specific port (students do on their own)
+
 Publish port 80 inside of the container as port 8080 on the host. Use the man page `man docker run`.
 Is there any difference between publishing port 80 and 8080? [Hint](https://www.w3.org/Daemon/User/Installation/PrivilegedPorts.html)
 * See logs of a container
@@ -155,3 +156,4 @@ docker run -d -p 80:80 ili/nginx
 # visit the welcome page in browser
 ```
 #### 8) Docker Hub
+Visit hub.docker.com.
