@@ -13,6 +13,12 @@ If you're wandering why this is necessary [this](http://www.projectatomic.io/blo
 
 Consult the manual page for the `run` subcommand: `man docker run`.
 
+### Start docker on boot
+You need to have docker daemon running before you can use `docker` commands. You can either start docker daemon each time or you can set it to start running at boot time with the following command:
+```
+sudo systemctl enable docker
+```
+
 ### The Lab
 #### 1) Hello World
 ```
